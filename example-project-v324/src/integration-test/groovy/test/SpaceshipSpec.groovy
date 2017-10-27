@@ -131,4 +131,18 @@ class SpaceshipSpec extends ReflectionSpecification {
         'shipData' | null
     }
 
+    @Unroll
+    def "property '#name': getRelatedClassType returns #clazz"(String name, Class<?> clazz) {
+        expect:
+        spaceship.getRelatedClassType(name) == clazz
+
+        where:
+        name       | clazz
+        'id'       | null
+        'version'  | null
+        'name'     | null
+        'captain'  | null
+        'shipData' | null
+    }
+
 }

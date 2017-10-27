@@ -125,4 +125,18 @@ class PhotoSpec extends ReflectionSpecification {
         'url'     | null
     }
 
+    @Unroll
+    def "property '#name': getRelatedClassType returns #clazz"(String name, Class<?> clazz) {
+        expect:
+        photo.getRelatedClassType(name) == clazz
+
+        where:
+        name      | clazz
+        'id'      | null
+        'version' | null
+        'name'    | null
+        'url'     | null
+    }
+
+
 }

@@ -138,4 +138,19 @@ class TeamSpec extends ReflectionSpecification {
         'fans'    | null
     }
 
+    @Unroll
+    def "property '#name': getRelatedClassType returns #clazz"(String name, Class<?> clazz) {
+        expect:
+        team.getRelatedClassType(name) == clazz
+
+        where:
+        name      | clazz
+        'id'      | null
+        'version' | null
+        'name'    | null
+        'strip'   | null
+        'players' | Player
+        'fans'    | Fan
+    }
+
 }

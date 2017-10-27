@@ -144,4 +144,20 @@ class PaletteSpec extends ReflectionSpecification {
         'complementaries' | null
     }
 
+    @Unroll
+    def "property '#name': getRelatedClassType returns #clazz"(String name, Class<?> clazz) {
+        expect:
+        palette.getRelatedClassType(name) == clazz
+
+        where:
+        name              | clazz
+        'id'              | null
+        'version'         | null
+        'author'          | null
+        'description'     | null
+        'colors'          | Color
+        'tags'            | String
+        'complementaries' | String
+    }
+
 }
