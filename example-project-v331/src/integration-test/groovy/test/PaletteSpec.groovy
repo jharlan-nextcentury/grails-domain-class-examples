@@ -54,13 +54,14 @@ class PaletteSpec extends ReflectionSpecification {
         palette.getPropertyByName(name).type == type
 
         where:
-        name          | type
-        'id'          | Long
-        'version'     | Long
-        'author'      | String
-        'description' | String
-        'colors'      | List
-        'tags'        | Set
+        name              | type
+        'id'              | Long
+        'version'         | Long
+        'author'          | String
+        'description'     | String
+        'colors'          | List
+        'tags'            | Set
+        'complementaries' | List
     }
 
     @Unroll
@@ -69,13 +70,14 @@ class PaletteSpec extends ReflectionSpecification {
         palette.getPropertyByName(name).persistent == persistent
 
         where:
-        name          | persistent
-        'id'          | true
-        'version'     | true
-        'author'      | true
-        'description' | false
-        'colors'      | true
-        'tags'        | true
+        name              | persistent
+        'id'              | true
+        'version'         | true
+        'author'          | true
+        'description'     | false
+        'colors'          | true
+        'tags'            | true
+        'complementaries' | false
     }
 
     @Unroll
@@ -84,13 +86,14 @@ class PaletteSpec extends ReflectionSpecification {
         palette.getPropertyByName(name).typePropertyName == typePropName
 
         where:
-        name          | typePropName
-        'id'          | 'long'
-        'version'     | 'long'
-        'author'      | 'string'
-        'description' | 'string'
-        'colors'      | 'list'
-        'tags'        | 'set'
+        name              | typePropName
+        'id'              | 'long'
+        'version'         | 'long'
+        'author'          | 'string'
+        'description'     | 'string'
+        'colors'          | 'list'
+        'tags'            | 'set'
+        'complementaries' | 'list'
     }
 
     @Unroll
@@ -99,13 +102,14 @@ class PaletteSpec extends ReflectionSpecification {
         palette.getPropertyByName(name).referencedPropertyType == refPropType
 
         where:
-        name          | refPropType
-        'id'          | Long
-        'version'     | Long
-        'author'      | String
-        'description' | String
-        'colors'      | Color
-        'tags'        | String
+        name              | refPropType
+        'id'              | Long
+        'version'         | Long
+        'author'          | String
+        'description'     | String
+        'colors'          | Color
+        'tags'            | String
+        'complementaries' | List
     }
 
     @Unroll
@@ -114,13 +118,14 @@ class PaletteSpec extends ReflectionSpecification {
         palette.getPropertyByName(name).association == association
 
         where:
-        name          | association
-        'id'          | false
-        'version'     | false
-        'author'      | false
-        'description' | false
-        'colors'      | false
-        'tags'        | false
+        name              | association
+        'id'              | false
+        'version'         | false
+        'author'          | false
+        'description'     | false
+        'colors'          | false
+        'tags'            | false
+        'complementaries' | false
     }
 
     @Unroll
@@ -129,13 +134,14 @@ class PaletteSpec extends ReflectionSpecification {
         palette.getPropertyByName(name).referencedDomainClass == getDomainClassArtefact(clazz)
 
         where:
-        name          | clazz
-        'id'          | null
-        'version'     | null
-        'author'      | null
-        'description' | null
-        'colors'      | null
-        'tags'        | null
+        name              | clazz
+        'id'              | null
+        'version'         | null
+        'author'          | null
+        'description'     | null
+        'colors'          | null
+        'tags'            | null
+        'complementaries' | null
     }
 
 }
